@@ -1,4 +1,4 @@
-#Endpoint: http://localhost:8900/fms/newRuleType
+#Endpoint: http://localhost:8900/fms/newRuleEntity
 #Json-input:
 {
    "userId":"USR9445023",
@@ -42,7 +42,7 @@
       },
       {
          "ruleEntityName":"DeviceID"
-      },
+      }
    ]
 }
 
@@ -205,7 +205,7 @@
          	"ruleEntityId":4,
             "ruleEntityName":"IPAddress"
          }
-      }
+      },
 	  {
 		 "accessMode":"PRIVATE",
 		 "action":"Review",
