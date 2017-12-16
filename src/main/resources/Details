@@ -1,0 +1,38 @@
+#Emdpoints: Local testing:
+http://localhost:8900/health/
+http://localhost:8900/info/
+http://localhost:8900/metrics/
+http://localhost:8900/trace/
+
+
+http://localhost:8900/fms/
+http://localhost:8900/fms/ping
+http://localhost:8900/fms/version
+
+
+http://localhost:8900/fms/newRule
+http://localhost:8900/fms/allRules
+http://localhost:8900/fms/globalRules
+
+
+http://localhost:8900/fms/newRuleEntity
+http://localhost:8900/fms/allRuleEntities
+
+
+http://localhost:8900/fms/fraudCalc
+http://localhost:8900/fms/allTxns
+
+
+D:\Workspace-Eclipse-Gets\FMS\src\main\webapp\FMSServiceExtTest.html
+
+===================================================================================================
+
+*How to run FMS(local)?
+1. Create DB: fms_db
+2. Run: fms_db.sql
+3. Run: Redis_Server_start.cmd
+4. Run: Build_and_Deploy.cmd
+5. Add RuleEntities(in FMS-Test-Data) using Postman
+6. Add Rules(in FMS-Test-Data) using Postman
+7. Hit API you want to invoke
+

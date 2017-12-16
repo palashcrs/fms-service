@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>EISRestServiceExtTest</title>
+<script type="text/javascript" src="lib/extjs/ext-6.0.2/ext.js"></script>
+<script type="text/javascript" src="lib/extjs/ext-6.0.2/ext-all.js"></script>
+<script type="text/javascript">
+	var eisEndpoint = "http://localhost:8900";
+
+	Ext.onReady(function() {
+		getAllFms();
+	});
+
+	function getAllFms() {
+		invokeFMSCall("listfms", Ext.encode({"fmsTypeId":2,"fmsTypeName":"Basic FMS","fmsTypeDescription":"This is Basic FMS..."}));
+	}
+
+	function invokeFMSCall(apiName, jsonData) {
+		invokeREST(eisEndpoint + "/fmstype/" + apiName, jsonData);
+	}
+
+	function invokeREST(httpUrl, jsonData) {
+		Ext.Ajax.request({
+			url : httpUrl,
+			jsonData : jsonData,
+			method : 'POST',
+
+			success : function(result, request) {
+				var jsonData = Ext.util.JSON.decode(result.responseText);
+				document.getElementById("Test").innerHTML = "Success.. </p>" + result.responseText;
+			},
+			failure : function(response, request) {
+				document.getElementById("Test").innerHTML = "Failure.. </p>" + response.responseText;
+			}
+		});
+	}
+</script>
+</head>
+
+
+<body>
+	"Refresh" / "F5" to hit the EIS REST Service
+	<p>
+		<b>EIS REST Ext Test</b>
+	</p>
+	<div id="Test"></div>
+</body>
+</html>

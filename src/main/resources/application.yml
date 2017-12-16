@@ -1,0 +1,36 @@
+server:
+  port: 8900
+  context-path: /fms
+  
+spring:
+  redis:
+    cluster:
+      max-redirects: 9
+      nodes: localhost:8090
+    database: 0
+    url: localhost:6379
+    ssl: false
+    pool:
+      max-active: 8
+      max-idle: 0
+      max-wait: -1
+      min-idle: 0
+      
+  
+   
+  datasource: 
+    url: jdbc:postgresql://localhost:5432/edgepay_db_new?currentSchema=edgepay_gateway_db
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+    
+  jpa:
+    #show-sql: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    
+edgepay: 
+  service:
+    connection-timeout : 4000
+    read-timeout : 5000
+    rest-request-pool-size : 300
+    rest-request-per-route  : 100
