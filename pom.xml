@@ -8,7 +8,7 @@
 	<url>http://maven.apache.org</url>
 
 	<properties>
-		<app.version>1.0</app.version>
+		<app.version>1.0.0</app.version>
 		<java.version>1.8</java.version>
 		<jacoco.version>0.7.2.201409121644</jacoco.version>
 		<start-class>com.get.edgepay.fms.config.FmsApplication</start-class>
