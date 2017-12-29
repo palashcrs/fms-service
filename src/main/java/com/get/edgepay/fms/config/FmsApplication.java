@@ -11,10 +11,12 @@ import org.springframework.boot.context.embedded.ConfigurableEmbeddedServletCont
 import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
 import org.springframework.boot.context.embedded.tomcat.TomcatConnectorCustomizer;
 import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import com.get.edgepay.fms.common.Application;
+import com.get.edgepay.fms.filter.AuthenticationFilter;
 
 @EntityScan("com.get.edgepay.fms.domain.model")
 @EnableJpaRepositories("com.get.edgepay.fms.repository")
@@ -25,6 +27,14 @@ public class FmsApplication implements CommandLineRunner {
 
 	public static void main(String[] args) {
 		SpringApplication.run(FmsApplication.class, args);
+	}
+
+	@Bean
+	public FilterRegistrationBean authenticationFilterRegistration() {
+		FilterRegistrationBean registrationBean = new FilterRegistrationBean();
+		registrationBean.setFilter(new AuthenticationFilter());
+
+		return registrationBean;
 	}
 
 	@Bean

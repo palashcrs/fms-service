@@ -35,6 +35,8 @@ public class FmsCacheServiceImpl implements FmsCacheService {
 
 	private static final Logger log = LoggerFactory.getLogger(FmsCacheServiceImpl.class);
 
+	private static final String MERCHANT_TOKEN = FmsCacheConstant.MERCHANT_TOKEN.name();
+	
 	private static final String ALL_RULEENTITY = FmsCacheConstant.ALL_RULEENTITY.name();
 
 	private static final String ALL_RULES = FmsCacheConstant.ALL_RULES.name();
@@ -63,9 +65,15 @@ public class FmsCacheServiceImpl implements FmsCacheService {
 	@PostConstruct
 	public void loadAll() throws Exception {
 		log.info("******Reload all data on startup!");
+		loadAllTokens();
 		loadAllRuleEntities();
 		loadRules();
 		loadAllTransactions();
+	}
+	
+	@Override
+	public void loadAllTokens() throws Exception {
+		cacheUtil.addToCache(MERCHANT_TOKEN, MERCHANT_TOKEN, "778965");
 	}
 
 	@Override

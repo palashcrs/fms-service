@@ -5,6 +5,8 @@ import java.util.List;
 import com.get.edgepay.fms.domain.dto.FmsTransactionDto;
 
 public interface FmsCacheService {
+	
+	void loadAllTokens() throws Exception;
 
 	public void loadAllRuleEntities() throws Exception;
 
