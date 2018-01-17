@@ -44,6 +44,7 @@ public class FmsTxnController {
 	@RequestMapping(value = "/fraudCalc", method = RequestMethod.POST)
 	public FMSResponse calcFraud(@RequestBody FMSRequest fmsRequest) {
 		log.info("*********/fms/fraudcalc | FMSRequest : " + fmsRequest);
+		log.info("test");
 		FMSResponse fmsResponse = new FMSResponse();
 		Object fmsOb = null;
 		FmsTransactionDto fmsTxnReq = null;
